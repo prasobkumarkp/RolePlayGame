@@ -9,5 +9,6 @@ namespace RolePlayGame.Models
         public int Defence { get; set; } = 10;
         public int Intelligence { get; set; } = 10;
         public CharacterType Type { get; set; } = CharacterType.Knight;
+        public User User { get; set; }
     }
 }

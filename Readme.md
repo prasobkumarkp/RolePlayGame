@@ -18,6 +18,6 @@ Dot Net Core Web API
     ```sh
     dotnet ef migrations add InitialCreate
     dotnet ef dbContext list
-    dotnet ef migrations add InitialCreate --context DataContext ## if more than two dbContext exists
-    dotnet ef database update --context DbContext
+    dotnet ef migrations add InitialCreate
+    dotnet ef database update
     ```
