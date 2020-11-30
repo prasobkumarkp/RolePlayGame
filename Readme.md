@@ -5,19 +5,32 @@ Dot Net Core Web API
 ## Packages
 
 1. AutoMapper
-    ```sh
+    ```powershell
     dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection
     ```
 1. EntityFrameworkCore
-    ```sh
+    ```powershell
     dotnet add package Microsoft.EntityFrameworkCore.SqlServer
     dotnet tool install --global dotnet-ef
     dotnet add package Microsoft.EntityFrameworkCore.Design
     ```
 1. Using EntityFrameworkCore
-    ```sh
+    ```powershell
     dotnet ef migrations add InitialCreate
     dotnet ef dbContext list
     dotnet ef migrations add InitialCreate
     dotnet ef database update
     ```
+1. Using JWT Token
+    ```powershell
+    dotnet add package Microsoft.IdentityModel.Tokens
+    dotnet add package System.IdentityModel.Tokens.Jwt
+    dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer
+    ```
+
+## Swagger UI
+
+1. Use Swagger UI to test the application APIs
+1. Path `/swagger/index.html`
+1. Login and retrieve an API token and which can be used in **Authorize** - top right corner of the Swagger UI
+1. This will add the authorization token for all consecutive requests
