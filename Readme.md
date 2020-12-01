@@ -15,6 +15,13 @@ Dot Net Core Web API
     dotnet add package Microsoft.EntityFrameworkCore.Design
     ```
 1. Using EntityFrameworkCore
+    1. Relationships
+        1. One to One (Character / Weapon)
+        1. One to Many (User / Character)
+        1. Many to Many (Character / Skill)
+    1. Joining entity & Fluent API
+    1. Include entity with LINQ queries
+    1. EF Scripts
     ```powershell
     dotnet ef migrations add InitialCreate
     dotnet ef dbContext list

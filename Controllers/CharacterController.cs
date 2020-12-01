@@ -1,5 +1,3 @@
-using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -23,8 +21,7 @@ namespace RolePlayGame.Controllers
         [HttpGet("GetAll")]
         public async Task<IActionResult> Get()
         {
-            var userId = int.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value);
-            return Ok(await _service.GetAllCharacters(userId));
+            return Ok(await _service.GetAllCharacters());
         }
 
         [HttpGet("{Id}")]

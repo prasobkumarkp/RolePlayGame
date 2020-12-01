@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using RolePlayGame.Dtos.Skill;
+using RolePlayGame.Dtos.Weapon;
 using RolePlayGame.Models;
 
 namespace RolePlayGame.Dtos.Character
@@ -11,5 +14,7 @@ namespace RolePlayGame.Dtos.Character
         public int Defence { get; set; } = 10;
         public int Intelligence { get; set; } = 10;
         public CharacterType Type { get; set; } = CharacterType.Knight;
+        public GetWeaponDto Weapon { get; set; }
+        public List<GetSkillDto> Skills { get; set; }
     }
 }
