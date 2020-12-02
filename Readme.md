@@ -35,7 +35,11 @@ Dot Net Core Web API
     dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer
     ```
     > Use https://jwt.io/ to debug the token
-
+## .Net Core commands
+  ```powershell
+    dotnet list packages
+    dotnet add package <package-name> ## to update package individually
+  ```
 ## Swagger UI
 
 1. Use Swagger UI to test the application APIs
