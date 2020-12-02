@@ -34,6 +34,7 @@ Dot Net Core Web API
     dotnet add package System.IdentityModel.Tokens.Jwt
     dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer
     ```
+    > Use https://jwt.io/ to debug the token
 
 ## Swagger UI
 
