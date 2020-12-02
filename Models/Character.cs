@@ -12,6 +12,7 @@ namespace RolePlayGame.Models
         public int Intelligence { get; set; } = 10;
         public CharacterType Type { get; set; } = CharacterType.Knight;
         public User User { get; set; }
+        public int UserId { get; set; }
         public Weapon Weapon { get; set; }
         public List<CharacterSkill> CharacterSkills { get; set; }
         public int Fights { get; set; }

@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using RolePlayGame.Models;
+using RolePlayGame.Utility;
 
 namespace RolePlayGame.Data
 {
@@ -45,7 +46,7 @@ namespace RolePlayGame.Data
                 response.Message = "User already exists";
                 return response;
             }
-            CreatePasswordHash(password, out byte[] passwordHash, out byte[] passwordSalt);
+            AuthUtility.CreatePasswordHash(password, out byte[] passwordHash, out byte[] passwordSalt);
             user.PasswordHash = passwordHash;
             user.PasswordSalt = passwordSalt;
 
@@ -63,15 +64,6 @@ namespace RolePlayGame.Data
                 return true;
             }
             return false;
-        }
-
-        private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
-        {
-            using (var crypto = new System.Security.Cryptography.HMACSHA512())
-            {
-                passwordSalt = crypto.Key;
-                passwordHash = crypto.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
-            }
         }
 
         private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
