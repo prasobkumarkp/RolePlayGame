@@ -14,6 +14,7 @@ using Microsoft.OpenApi.Models;
 using RolePlayGame.Data;
 using RolePlayGame.Services.CharacterServices;
 using RolePlayGame.Services.CharacterSkillService;
+using RolePlayGame.Services.FightService;
 using RolePlayGame.Services.WeaponService;
 
 namespace RolePlayGame
@@ -37,6 +38,7 @@ namespace RolePlayGame
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IWeaponService, WeaponService>();
             services.AddScoped<ICharacterSkillService, CharacterSkillService>();
+            services.AddScoped<IFightService, FightService>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSwaggerGen(c =>
             {

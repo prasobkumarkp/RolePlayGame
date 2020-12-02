@@ -26,7 +26,13 @@ namespace RolePlayGame.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<int>("Defeats")
+                        .HasColumnType("int");
+
                     b.Property<int>("Defence")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Fights")
                         .HasColumnType("int");
 
                     b.Property<int>("HitPoints")
@@ -45,6 +51,9 @@ namespace RolePlayGame.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Victories")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -118,7 +127,7 @@ namespace RolePlayGame.Migrations
                     b.Property<int>("CharacterId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Damaga")
+                    b.Property<int>("Damage")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")

@@ -120,7 +120,7 @@ namespace RolePlayGame.Migrations
                     b.Property<int>("CharacterId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Damaga")
+                    b.Property<int>("Damage")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")

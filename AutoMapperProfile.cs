@@ -1,6 +1,7 @@
 using System.Linq;
 using AutoMapper;
 using RolePlayGame.Dtos.Character;
+using RolePlayGame.Dtos.Fight;
 using RolePlayGame.Dtos.Skill;
 using RolePlayGame.Dtos.Weapon;
 using RolePlayGame.Models;
@@ -16,6 +17,7 @@ namespace RolePlayGame
             CreateMap<AddCharacterDto, Character>();
             CreateMap<Weapon, GetWeaponDto>();
             CreateMap<Skill, GetSkillDto>();
+            CreateMap<Character, HighScoreDto>();
         }
     }
 }

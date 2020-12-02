@@ -39,7 +39,7 @@ namespace RolePlayGame.Services.WeaponService
                 var newWeapon = new Weapon
                 {
                     Name = weapon.Name,
-                    Damaga = weapon.Damage,
+                    Damage = weapon.Damage,
                     Character = character
                 };
 
