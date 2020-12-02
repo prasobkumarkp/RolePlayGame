@@ -9,8 +9,8 @@ using RolePlayGame.Data;
 namespace RolePlayGame.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20201202111955_Initial")]
-    partial class Initial
+    [Migration("20201202120918_AddedSeeding")]
+    partial class AddedSeeding
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -48,7 +48,7 @@ namespace RolePlayGame.Migrations
                     b.Property<int>("Type")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("Victories")
@@ -59,6 +59,36 @@ namespace RolePlayGame.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Characters");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Defeats = 0,
+                            Defence = 10,
+                            Fights = 0,
+                            HitPoints = 100,
+                            Intelligence = 10,
+                            Name = "Frodo",
+                            Strength = 15,
+                            Type = 1,
+                            UserId = 1,
+                            Victories = 0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Defeats = 0,
+                            Defence = 5,
+                            Fights = 0,
+                            HitPoints = 100,
+                            Intelligence = 20,
+                            Name = "Raistlin",
+                            Strength = 5,
+                            Type = 2,
+                            UserId = 2,
+                            Victories = 0
+                        });
                 });
 
             modelBuilder.Entity("RolePlayGame.Models.CharacterSkill", b =>
@@ -74,6 +104,23 @@ namespace RolePlayGame.Migrations
                     b.HasIndex("SkillId");
 
                     b.ToTable("CharacterSkills");
+
+                    b.HasData(
+                        new
+                        {
+                            CharacterId = 1,
+                            SkillId = 2
+                        },
+                        new
+                        {
+                            CharacterId = 2,
+                            SkillId = 1
+                        },
+                        new
+                        {
+                            CharacterId = 2,
+                            SkillId = 3
+                        });
                 });
 
             modelBuilder.Entity("RolePlayGame.Models.Skill", b =>
@@ -91,6 +138,26 @@ namespace RolePlayGame.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Skills");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Damage = 30,
+                            Name = "Fireball"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Damage = 20,
+                            Name = "Frenzy"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Damage = 50,
+                            Name = "Blizzard"
+                        });
                 });
 
             modelBuilder.Entity("RolePlayGame.Models.User", b =>
@@ -117,6 +184,22 @@ namespace RolePlayGame.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            PasswordHash = new byte[] { 9, 22, 245, 207, 31, 231, 146, 46, 226, 97, 167, 61, 243, 12, 169, 134, 71, 189, 165, 92, 196, 243, 41, 251, 229, 127, 25, 26, 206, 82, 72, 151, 66, 90, 127, 97, 169, 77, 64, 68, 93, 16, 145, 210, 132, 211, 30, 122, 128, 166, 69, 228, 30, 65, 74, 190, 76, 17, 47, 10, 226, 85, 228, 199 },
+                            PasswordSalt = new byte[] { 139, 154, 62, 46, 166, 147, 229, 131, 60, 5, 160, 176, 180, 43, 233, 57, 200, 104, 119, 133, 214, 246, 98, 168, 185, 165, 39, 196, 106, 193, 162, 201, 203, 198, 227, 152, 26, 92, 164, 204, 222, 245, 114, 25, 222, 123, 100, 29, 184, 148, 102, 251, 123, 118, 24, 155, 232, 71, 111, 103, 100, 102, 176, 34, 92, 229, 40, 210, 243, 70, 171, 110, 145, 122, 113, 170, 173, 7, 185, 148, 25, 146, 140, 36, 90, 121, 145, 194, 143, 144, 92, 209, 229, 58, 4, 69, 14, 248, 129, 114, 99, 120, 45, 115, 175, 128, 194, 218, 62, 62, 53, 145, 104, 204, 237, 246, 43, 26, 91, 146, 0, 191, 63, 12, 76, 106, 230, 93 },
+                            Username = "Flora"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            PasswordHash = new byte[] { 9, 22, 245, 207, 31, 231, 146, 46, 226, 97, 167, 61, 243, 12, 169, 134, 71, 189, 165, 92, 196, 243, 41, 251, 229, 127, 25, 26, 206, 82, 72, 151, 66, 90, 127, 97, 169, 77, 64, 68, 93, 16, 145, 210, 132, 211, 30, 122, 128, 166, 69, 228, 30, 65, 74, 190, 76, 17, 47, 10, 226, 85, 228, 199 },
+                            PasswordSalt = new byte[] { 139, 154, 62, 46, 166, 147, 229, 131, 60, 5, 160, 176, 180, 43, 233, 57, 200, 104, 119, 133, 214, 246, 98, 168, 185, 165, 39, 196, 106, 193, 162, 201, 203, 198, 227, 152, 26, 92, 164, 204, 222, 245, 114, 25, 222, 123, 100, 29, 184, 148, 102, 251, 123, 118, 24, 155, 232, 71, 111, 103, 100, 102, 176, 34, 92, 229, 40, 210, 243, 70, 171, 110, 145, 122, 113, 170, 173, 7, 185, 148, 25, 146, 140, 36, 90, 121, 145, 194, 143, 144, 92, 209, 229, 58, 4, 69, 14, 248, 129, 114, 99, 120, 45, 115, 175, 128, 194, 218, 62, 62, 53, 145, 104, 204, 237, 246, 43, 26, 91, 146, 0, 191, 63, 12, 76, 106, 230, 93 },
+                            Username = "Clara"
+                        });
                 });
 
             modelBuilder.Entity("RolePlayGame.Models.Weapon", b =>
@@ -140,13 +223,31 @@ namespace RolePlayGame.Migrations
                         .IsUnique();
 
                     b.ToTable("Weapons");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CharacterId = 1,
+                            Damage = 20,
+                            Name = "The Master Sword"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CharacterId = 1,
+                            Damage = 20,
+                            Name = "The Master Sword"
+                        });
                 });
 
             modelBuilder.Entity("RolePlayGame.Models.Character", b =>
                 {
                     b.HasOne("RolePlayGame.Models.User", "User")
                         .WithMany("Characters")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
