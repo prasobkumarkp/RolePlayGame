@@ -1,4 +1,5 @@
-# Role Play Game
+# Role Play Game 
+![.NET](https://github.com/prasobkumarkp/RolePlayGame/workflows/.NET/badge.svg)
 
 Dot Net Core Web API
 
